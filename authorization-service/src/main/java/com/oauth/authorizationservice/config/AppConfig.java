@@ -18,42 +18,42 @@ import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
 @Configuration
 public class AppConfig {
 
-  @Bean
-  @Order(1)
-  public SecurityFilterChain asFilterChain(HttpSecurity http) throws Exception {
-    OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-
-    http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-      .oidc(Customizer.withDefaults());
-
-    http.exceptionHandling(
-      c -> c.defaultAuthenticationEntryPointFor(
-        new LoginUrlAuthenticationEntryPoint("/login"),
-        new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
-      )
-    );
-
-    return http.build();
-  }
-
-  @Bean
-  @Order(2)
-  public SecurityFilterChain appFilterChain(HttpSecurity http) throws Exception {
-    http.formLogin(Customizer.withDefaults());
-
-    http.authorizeHttpRequests(c -> c.anyRequest().authenticated());
-
-    return http.build();
-  }
-
-  @Bean
-  public AuthorizationServerSettings authorizationServerSettings() {
-    return AuthorizationServerSettings.builder().build();
-  }
-
-  @Bean
-  public RegisteredClientRepository registeredClientRepository() {
-    return null;
-  }
+//  @Bean
+//  @Order(1)
+//  public SecurityFilterChain asFilterChain(HttpSecurity http) throws Exception {
+//    OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+//
+//    http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
+//      .oidc(Customizer.withDefaults());
+//
+//    http.exceptionHandling(
+//      c -> c.defaultAuthenticationEntryPointFor(
+//        new LoginUrlAuthenticationEntryPoint("/login"),
+//        new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
+//      )
+//    );
+//
+//    return http.build();
+//  }
+//
+//  @Bean
+//  @Order(2)
+//  public SecurityFilterChain appFilterChain(HttpSecurity http) throws Exception {
+//    http.formLogin(Customizer.withDefaults());
+//
+//    http.authorizeHttpRequests(c -> c.anyRequest().authenticated());
+//
+//    return http.build();
+//  }
+//
+//  @Bean
+//  public AuthorizationServerSettings authorizationServerSettings() {
+//    return AuthorizationServerSettings.builder().build();
+//  }
+//
+//  @Bean
+//  public RegisteredClientRepository registeredClientRepository() {
+//    return null;
+//  }
 
 }

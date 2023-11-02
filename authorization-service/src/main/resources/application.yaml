@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/authorization
+    username: authorization
+    password: authorization
+  jpa:
+    open-in-view: false
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  flyway:
+    locations:
+      - classpath:db/migration/{vendor}
+    baseline-on-migrate: true
+    table: authorizationversion
+    baseline-version: 0
+    user: authorization
+    password: authorization
