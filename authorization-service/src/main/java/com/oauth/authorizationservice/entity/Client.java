@@ -24,10 +24,17 @@ public class Client {
   private String clientId;
   @Column(name = "client_secret")
   private String clientSecret;
-  @Column(name = "authentication")
-  private String authentication;
+
+  @OneToMany(mappedBy = "client")
+  private List<AuthenticationMethod> authentication;
 
   @OneToMany(mappedBy = "client")
   private List<GrantType> grantTypes;
+
+  @OneToMany(mappedBy = "client")
+  private List<RedirectUrl> redirectUrls;
+
+  @OneToMany(mappedBy = "client")
+  private List<Scope> scopes;
 
 }
