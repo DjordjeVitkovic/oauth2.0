@@ -20,6 +20,6 @@ public class Scope {
   private Integer id;
   @Column(name = "scope")
   private String scope;
-  @Column(name = "client_id")
-  private Integer clientId;
+  @ManyToOne
+  private Client client;
 }
