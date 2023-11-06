@@ -59,14 +59,4 @@ public class AppConfig {
   public PasswordEncoder passwordEncoder() {
     return NoOpPasswordEncoder.getInstance();
   }
-
-  @Bean
-  public UserDetailsService userDetailsService() {
-    UserDetails userDetails1 = User
-      .withUsername("bill")
-      .password("12345")
-      .authorities("read")
-      .build();
-    return new InMemoryUserDetailsManager(userDetails1);
-  }
 }

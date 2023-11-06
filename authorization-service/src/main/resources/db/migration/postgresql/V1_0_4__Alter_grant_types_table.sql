@@ -1,0 +1,1 @@
+ALTER TABLE grant_types RENAME COLUMN grant_types TO grant_type;
