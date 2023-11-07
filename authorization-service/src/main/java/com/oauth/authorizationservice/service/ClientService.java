@@ -79,6 +79,7 @@ public class ClientService implements RegisteredClientRepository {
     return client.map(Client::fromClient)
       .orElseThrow(() -> new RuntimeException("Error while mapping clients."));
   }
+
   @Override
   public RegisteredClient findByClientId(String clientId) {
     var client = clientRepository.findByClientId(clientId);

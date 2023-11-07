@@ -1,12 +1,15 @@
 package com.oauth.authorizationservice;
 
+import com.oauth.authorizationservice.entity.Client;
 import com.oauth.authorizationservice.entity.User;
+import com.oauth.authorizationservice.repository.ClientRepository;
 import com.oauth.authorizationservice.repository.RoleRepository;
 import com.oauth.authorizationservice.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.ZonedDateTime;
 import java.util.Set;
@@ -14,14 +17,23 @@ import java.util.Set;
 @SpringBootApplication
 public class AuthorizationServiceApplication {
 
-
   public static void main(String[] args) {
     SpringApplication.run(AuthorizationServiceApplication.class, args);
   }
 
   @Bean
-  CommandLineRunner run(UserRepository userRepository, RoleRepository roleRepository) {
+  CommandLineRunner run(UserRepository userRepository, RoleRepository roleRepository, ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
     return args -> {
+//      Client client = clientRepository.findByClientId("client")
+//        .orElseThrow(() -> new IllegalArgumentException("Client does not exist"));
+//      client.setClientSecret(passwordEncoder.encode("secret"));
+//      clientRepository.save(client);
+//
+//      User user = userRepository.findByUsernameOrEmail("djordje")
+//        .orElseThrow(() -> new IllegalArgumentException("Client does not exist"));
+//      user.setPassword(passwordEncoder.encode("password"));
+//      userRepository.save(user);
+      /*
       User user = User.builder()
         .username("djordje")
         .password("password")
@@ -32,9 +44,8 @@ public class AuthorizationServiceApplication {
         .enabled(true)
         .created(ZonedDateTime.now())
         .build();
-
       userRepository.save(user);
-
+       */
     };
   }
 

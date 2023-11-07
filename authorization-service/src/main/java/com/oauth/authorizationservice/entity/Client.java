@@ -49,7 +49,8 @@ public class Client {
   private ClientTokenSettings clientTokenSettings;
 
   public static RegisteredClient fromClient(Client client) {
-    return RegisteredClient.withId(String.valueOf(client.getId()))
+    return RegisteredClient
+      .withId(String.valueOf(client.getId()))
       .clientId(client.getClientId())
       .clientSecret(client.getClientSecret())
       .clientAuthenticationMethods(clientAuthenticationMethods(client.getAuthenticationMethods()))
