@@ -4,7 +4,7 @@
 
 ## ADD
 - Clients' table should have ManyToMany relations to other tables and that should be updated.
-- Add client service
+- Add client service and I think it should be a gateway... https://www.youtube.com/watch?v=9PY_Z5h16Js
 
 VERIFIER_ts5qtg4KQGLOakWLOrUjGuPWE-n9Um1r3u8P0xhIg0
 CHALLENGEEvjd8Q8ejEvJmB-N3ouyl6Ikh0IRHiQy6b4CUvtR-BA

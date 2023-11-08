@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/authorization
+    url: jdbc:postgresql://localhost:5432/authorization
     username: authorization
     password: authorization
   jpa:
@@ -19,3 +19,5 @@ spring:
     baseline-version: 0
     user: authorization
     password: authorization
+server:
+  port: 8080

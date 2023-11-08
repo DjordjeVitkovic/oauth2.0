@@ -45,7 +45,7 @@ public class Client {
   @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
   private List<Scope> scopes;
 
-  @OneToOne(mappedBy = "client")
+  @OneToOne(mappedBy = "client", fetch = FetchType.EAGER)
   private ClientTokenSettings clientTokenSettings;
 
   public static RegisteredClient fromClient(Client client) {
@@ -58,8 +58,8 @@ public class Client {
       .scopes(scopes(client.getScopes()))
       .redirectUris(redirectUrls(client.getRedirectUrls()))
       .tokenSettings(TokenSettings.builder()
-        .accessTokenTimeToLive(Duration.ofHours(client.clientTokenSettings.getTokenLifespan()))
-        .accessTokenFormat(new OAuth2TokenFormat(client.clientTokenSettings.getTokenType()))
+        .accessTokenTimeToLive(Duration.ofHours(client.getClientTokenSettings().getTokenLifespan()))
+        .accessTokenFormat(new OAuth2TokenFormat(client.getClientTokenSettings().getTokenType()))
         .build())
       .build();
   }

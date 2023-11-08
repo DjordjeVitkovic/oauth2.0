@@ -24,7 +24,7 @@ public class SecurityConfig {
     http.oauth2ResourceServer(
       c -> c.opaqueToken(
         o -> o.introspectionUri("http://localhost:8080/oauth2/introspect")
-          // Here we are registering our app as a client because resorce service calling auth-service as a client
+          // Here we are registering our app as a client because resource service calling auth-service as a client
           .introspectionClientCredentials("resource-service", "secret")
       )
     );

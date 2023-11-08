@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          client:
+            provider: spring
+            client-id: client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8081/login/oauth2/code/{registrationId}
+            client-name: Login with Spring Provider
+            client-authentication-method: client_secret_basic
+            scope:
+              - openid
+        provider:
+          spring:
+            issuer-uri: http://localhost:8080
+  cloud:
+    gateway:
+      routes:
+        - id: resource
+          uri: http://localhost:8082
+          predicates:
+            - Path=/resource/demo
+          filters:
+            - TokenRelay

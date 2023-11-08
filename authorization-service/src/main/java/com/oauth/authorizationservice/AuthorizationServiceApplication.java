@@ -1,7 +1,5 @@
 package com.oauth.authorizationservice;
 
-import com.oauth.authorizationservice.entity.Client;
-import com.oauth.authorizationservice.entity.User;
 import com.oauth.authorizationservice.repository.ClientRepository;
 import com.oauth.authorizationservice.repository.RoleRepository;
 import com.oauth.authorizationservice.repository.UserRepository;
@@ -10,9 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.time.ZonedDateTime;
-import java.util.Set;
 
 @SpringBootApplication
 public class AuthorizationServiceApplication {
@@ -24,7 +19,7 @@ public class AuthorizationServiceApplication {
   @Bean
   CommandLineRunner run(UserRepository userRepository, RoleRepository roleRepository, ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
     return args -> {
-//      Client client = clientRepository.findByClientId("client")
+//      Client client = clientRepository.findByClientId("resource-service")
 //        .orElseThrow(() -> new IllegalArgumentException("Client does not exist"));
 //      client.setClientSecret(passwordEncoder.encode("secret"));
 //      clientRepository.save(client);
