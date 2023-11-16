@@ -4,6 +4,7 @@
 
 ## ADD
 - Clients' table should have ManyToMany relations to other tables and that should be updated.
+- Wrap-up everything and apply in some real world case
 
 VERIFIER_ts5qtg4KQGLOakWLOrUjGuPWE-n9Um1r3u8P0xhIg0
 CHALLENGEEvjd8Q8ejEvJmB-N3ouyl6Ikh0IRHiQy6b4CUvtR-BA
